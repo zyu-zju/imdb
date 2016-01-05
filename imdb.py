@@ -34,7 +34,7 @@ def get_keywords_for_movie(url):
 	"""Return a list of keywords associated with *movie*"""
 	keywords = []
 	response = requests.get(url)
-	soup = BeautifulSoup(response.txt)
+	soup = BeautifulSoup(response.text)
 	tables = soup.find_all('table', class_='dataTable')
 	table =tables[0]
 	return [td.text for tr in table.find_all('tr') for td in tr.find_all('td')]
